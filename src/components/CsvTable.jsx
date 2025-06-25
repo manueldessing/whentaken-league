@@ -3,7 +3,9 @@ import Papa from 'papaparse';
 import {
   Paper, Typography, TableContainer, Table,
   TableHead, TableRow, TableCell, TableBody,
+  Tooltip, Box,
 } from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 /**  Color tokens – adjust here once  */
 const COLORS = {
@@ -17,13 +19,15 @@ const COLORS = {
  * Generic, styled CSV-backed table
  *
  * Props:
- *  - title:   string
- *  - csvUrl:  string  (public CSV export URL)
- *  - columns: [ { key, label, align?, format? }, … ]
- *  - transformRows?: (arr) => arr   (optional post-processor)
- *  - tableSx?: object (optional style overrides for Table)
- *  - borderColor?: string (optional border color override)
- *  - boldFirstRow?: boolean (optional, bold the first row in tbody)
+ *  - title:         string
+ *  - csvUrl:        string (public CSV export URL)  ❱ unused in this version
+ *  - rawRows:       array  (already-fetched rows)
+ *  - columns:       [ { key, label, align?, format? }, … ]
+ *  - transformRows: (arr) => arr   (optional post-processor)
+ *  - tableSx:       object (optional style overrides for Table)
+ *  - borderColor:   string (optional border color override)
+ *  - boldFirstRow:  boolean (optional, bold the first row in tbody)
+ *  - tooltip:       string (optional – shows an ℹ️ icon next to title)
  */
 export default function CsvTable({
   title,
@@ -33,11 +37,12 @@ export default function CsvTable({
   tableSx = {},
   borderColor,
   boldFirstRow = false,
+  tooltip,
 }) {
   const effectiveBorder = borderColor || COLORS.border;
 
   const rows = transformRows(rawRows || []); 
-  
+
   return (
     <Paper
       elevation={3}
@@ -50,8 +55,50 @@ export default function CsvTable({
       }}
     >
       {title && (
-        <Typography variant="h6" sx={{ p: 1, color: COLORS.text }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            p: 1,
+            color: COLORS.text,
+            display: 'flex',
+            alignItems: 'center',
+            columnGap: 0.5,
+            justifyContent: 'center'
+          }}
+        >
           {title}
+          {tooltip && (
+            <Tooltip
+              title={tooltip}
+              arrow
+              placement="top"
+              enterDelay={100}
+              slotProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: 'rgba(30,30,30,0.9)',
+                    fontSize: '0.825rem',
+                    backdropFilter: 'blur(4px)',
+                  },
+                },
+                arrow: {
+                  sx: {
+                    color: 'rgba(30,30,30,0.9)',
+                  },
+                },
+              }}
+            >
+              <InfoOutlinedIcon
+                sx={{
+                  fontSize: '1rem',
+                  opacity: 0.8,
+                  cursor: 'help',
+                  '&:hover': { opacity: 1 },
+                }}
+              />
+            </Tooltip>
+          )}
         </Typography>
       )}
 

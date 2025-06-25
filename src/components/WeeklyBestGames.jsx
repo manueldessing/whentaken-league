@@ -24,6 +24,7 @@ export default function WeeklyBestGames() {
         { key: "Score",  label: "Score", align: "right" },
         { key: "Date",   label: "Date",  align: "right", format: formatDateEU },
       ]}
+      tooltip={<>Best game of <i>last</i> week</>}
     />
   );
 }

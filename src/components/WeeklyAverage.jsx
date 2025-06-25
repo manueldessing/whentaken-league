@@ -28,6 +28,7 @@ export default function WeeklyAverage() {
         },
         { key: "Games",    label: "Games",     align: "right" },
       ]}
+      tooltip={<>Average of <i>last</i> week's games</>}
     />
   );
 }

@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.2",
     "@mui/material": "^7.1.2",
     "@tanstack/react-router": "^1.121.34",
     "@tanstack/router-core": "^1.121.34",
