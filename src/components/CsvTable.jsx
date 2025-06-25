@@ -27,27 +27,17 @@ const COLORS = {
  */
 export default function CsvTable({
   title,
-  csvUrl,
+  rawRows,
   columns,
   transformRows = (r) => r,
   tableSx = {},
   borderColor,
   boldFirstRow = false,
 }) {
-  const [rows, setRows] = useState([]);
   const effectiveBorder = borderColor || COLORS.border;
 
-  useEffect(() => {
-    Papa.parse(csvUrl, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: (res) =>
-        setRows(transformRows(res.data)),
-      error: console.error,
-    });
-  }, [csvUrl, transformRows]);
-
+  const rows = transformRows(rawRows || []); 
+  
   return (
     <Paper
       elevation={3}
