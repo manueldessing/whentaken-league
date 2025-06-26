@@ -1,13 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { DataProvider } from './DataProvider'
-import './index.css'
 import App from './App.jsx'
+import ThemeProvider from './theme/ThemeProvider'
+import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <DataProvider>
-      <App />
-    </DataProvider>
+    <ThemeProvider>
+      <DataProvider>
+        <App />
+      </DataProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

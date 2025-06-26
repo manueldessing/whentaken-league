@@ -12,12 +12,12 @@ import {
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
-/**  Color tokens – adjust here once  */
+/**  Color tokens */
 const COLORS = {
-  bg: "rgba(60, 60, 60, 0.15)", // neutral, 65 % opacity
-  border: "rgba(123, 114, 143, 0.45)",
+  bg: "var(--csvtable-bg, rgba(60, 60, 60, 0.15))",
+  border: "var(--csvtable-border, rgba(123, 114, 143, 0.45))",
   text: "inherit",
-  headBg: "rgba(0, 0, 0, 0.25)", // header strip
+  headBg: "var(--csvtable-headbg, rgba(0, 0, 0, 0.25))",
 };
 
 /**
@@ -25,7 +25,6 @@ const COLORS = {
  *
  * Props:
  *  - title:         string
- *  - csvUrl:        string (public CSV export URL)  ❱ unused in this version
  *  - rawRows:       array  (already-fetched rows)
  *  - columns:       [ { key, label, align?, format? }, … ]
  *  - transformRows: (arr) => arr   (optional post-processor)
@@ -120,10 +119,9 @@ export default function CsvTable({
             },
             "& th": { backgroundColor: COLORS.headBg, fontWeight: 700 },
             "& tr:nth-of-type(odd)": {
-              backgroundColor: "rgba(255,255,255,0.04)",
+              backgroundColor: "var(--csvtable-row-odd, rgba(255,255,255,0.04))",
             },
             "& tbody tr:last-child td": {
-              // 👈 Add this line
               borderBottom: "none",
             },
             ...tableSx,

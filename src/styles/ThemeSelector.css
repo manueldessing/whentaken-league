@@ -3,7 +3,7 @@
   position: relative;
   display: inline-flex;
   padding: 4px;
-  background: rgba(128 128 128 / 0.2);
+  background: var(--theme-selector-bg, rgba(128 128 128 / 0.2));
   border-radius: 8px;
 }
 
@@ -17,44 +17,42 @@
   z-index: 1;
   display: flex;
   justify-content: center;
-  /* transition: transform 0.2s ease; */
   transition: color 0.2s ease;
 }
 
 .theme-selector button.light-btn:hover {
-  /* transform: scale(1.08); */
   color: #e3ed75;
 }
 
 .theme-selector button.system-btn:hover {
-  color: #bc9f9f;
+  color: var(--theme-selector-system-button);
 }
 
 .theme-selector button.dark-btn:hover {
   color: #8797d0;
 }
 
+/* Remove prefers-color-scheme media query. Use variables. */
 
-@media (prefers-color-scheme: light) {
-  .theme-selector {
-    background: rgba(185, 185, 185, 0.522);
-  }
-
-  .theme-selector button.system-btn:hover {
-    color: #6f4d4d;
-  }
-}
-
-/* sliding background */
 .theme-selector .selector-bg {
   position: absolute;
   top: 4px;
   bottom: 4px;
   left: 4px;
-  width: calc((100% - 8px) / 3); /* (full width – 2×padding) / 3 */
-  background: rgba(255 255 255 / 0.2);
+  width: calc((100% - 8px) / 3);
+  background: var(--theme-selector-bg-inner, rgba(255 255 255 / 0.2));
   border-radius: 6px;
   transition: transform 0.3s ease;
+}
+
+.selector-bg.light {
+  transform: translateX(0);
+}
+.selector-bg.system {
+  transform: translateX(100%);
+}
+.selector-bg.dark {
+  transform: translateX(200%);
 }
 
 .selector-bg.light {
