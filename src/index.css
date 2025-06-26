@@ -74,6 +74,6 @@ button:focus:not(:focus-visible) {
   }
 
   button:hover {
-    border-color: #0e125a;
+    border-color: #0e125a8a;
   }
 }

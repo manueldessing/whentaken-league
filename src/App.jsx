@@ -4,6 +4,7 @@ import AllTimeBestGames from "./components/AllTimeBestGames";
 import AllTimeAverage from "./components/AllTimeAverage";
 import WeeklyBestGames from "./components/WeeklyBestGames";
 import PlayerStatsTable from "./components/PlayerStatsTable";
+import ThemeSelector from "./components/ThemeSelector";
 import "./App.css";
 
 function App() {
@@ -11,7 +12,14 @@ function App() {
 
   return (
     <div className="main-page">
-      <h2>Data Science WhenTaken League</h2>
+      <div className="header">
+        {/* <div className="header-spacer" /> */}
+        <h2>Data Science WhenTaken League</h2>
+        <div className="theme-selector-container">
+          <ThemeSelector fontSize="1em"/>
+        </div>
+        
+      </div>
       <div className="nav-buttons">
         <button
           className={section === "leaderboards" ? "active-nav" : ""}

@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react';
-import Papa from 'papaparse';
 import {
-  Paper, Typography, TableContainer, Table,
-  TableHead, TableRow, TableCell, TableBody,
-  Tooltip, Box,
-} from '@mui/material';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+  Paper,
+  Typography,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Tooltip,
+  Box,
+} from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 /**  Color tokens – adjust here once  */
 const COLORS = {
-  bg:     'rgba(60, 60, 60, 0.15)', // neutral, 65 % opacity
-  border: 'rgba(123, 114, 143, 0.45)', 
-  text:   'inherit',       
-  headBg: 'rgba(0, 0, 0, 0.25)',    // header strip
+  bg: "rgba(60, 60, 60, 0.15)", // neutral, 65 % opacity
+  border: "rgba(123, 114, 143, 0.45)",
+  text: "inherit",
+  headBg: "rgba(0, 0, 0, 0.25)", // header strip
 };
 
 /**
@@ -41,17 +46,19 @@ export default function CsvTable({
 }) {
   const effectiveBorder = borderColor || COLORS.border;
 
-  const rows = transformRows(rawRows || []); 
+  const rows = transformRows(rawRows || []);
 
   return (
     <Paper
       elevation={3}
       sx={{
-        color: 'inherit',
+        color: "inherit",
         mb: 4,
         bgcolor: COLORS.bg,
-        backdropFilter: 'blur(4px)',
+        backdropFilter: "blur(4px)",
         border: `2px solid ${effectiveBorder}`,
+        borderRadius: 3,
+        overflow: "hidden",
       }}
     >
       {title && (
@@ -61,10 +68,10 @@ export default function CsvTable({
           sx={{
             p: 1,
             color: COLORS.text,
-            display: 'flex',
-            alignItems: 'center',
+            display: "flex",
+            alignItems: "center",
             columnGap: 0.5,
-            justifyContent: 'center'
+            justifyContent: "center",
           }}
         >
           {title}
@@ -77,24 +84,24 @@ export default function CsvTable({
               slotProps={{
                 tooltip: {
                   sx: {
-                    bgcolor: 'rgba(30,30,30,0.9)',
-                    fontSize: '0.825rem',
-                    backdropFilter: 'blur(4px)',
+                    bgcolor: "rgba(30,30,30,0.9)",
+                    fontSize: "0.825rem",
+                    backdropFilter: "blur(4px)",
                   },
                 },
                 arrow: {
                   sx: {
-                    color: 'rgba(30,30,30,0.9)',
+                    color: "rgba(30,30,30,0.9)",
                   },
                 },
               }}
             >
               <InfoOutlinedIcon
                 sx={{
-                  fontSize: '1rem',
+                  fontSize: "1rem",
                   opacity: 0.8,
-                  cursor: 'help',
-                  '&:hover': { opacity: 1 },
+                  cursor: "help",
+                  "&:hover": { opacity: 1 },
                 }}
               />
             </Tooltip>
@@ -107,13 +114,17 @@ export default function CsvTable({
           size="small"
           stickyHeader
           sx={{
-            '& th, & td': {
+            "& th, & td": {
               borderBottom: `1px solid ${effectiveBorder}`,
               color: COLORS.text,
             },
-            '& th': { backgroundColor: COLORS.headBg, fontWeight: 700 },
-            '& tr:nth-of-type(odd)': {
-              backgroundColor: 'rgba(255,255,255,0.04)',
+            "& th": { backgroundColor: COLORS.headBg, fontWeight: 700 },
+            "& tr:nth-of-type(odd)": {
+              backgroundColor: "rgba(255,255,255,0.04)",
+            },
+            "& tbody tr:last-child td": {
+              // 👈 Add this line
+              borderBottom: "none",
             },
             ...tableSx,
           }}
@@ -121,7 +132,7 @@ export default function CsvTable({
           <TableHead>
             <TableRow>
               {columns.map((c) => (
-                <TableCell key={c.key} align={c.align || 'left'}>
+                <TableCell key={c.key} align={c.align || "left"}>
                   {c.label}
                 </TableCell>
               ))}
@@ -140,8 +151,12 @@ export default function CsvTable({
                   return (
                     <TableCell
                       key={c.key}
-                      align={c.align || 'left'}
-                      sx={boldFirstRow && idx === 0 ? { fontWeight: 700 } : undefined}
+                      align={c.align || "left"}
+                      sx={
+                        boldFirstRow && idx === 0
+                          ? { fontWeight: 700 }
+                          : undefined
+                      }
                     >
                       {value}
                     </TableCell>

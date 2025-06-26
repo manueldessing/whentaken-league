@@ -33,7 +33,7 @@ export default function AllTimeBestGames() {
         { key: "Score",  label: "Score", align: "right" },
         { key: "Date",   label: "Date",  align: "right", format: formatDateEU },
       ]}
-      borderColor="rgba(230, 213, 98, 0.71)"
+      borderColor="rgba(237, 215, 76, 0.71)"
       tableSx={{
         "& th, & td": {
           borderBottom: "1px solid rgba(123, 114, 143, 0.45)",
