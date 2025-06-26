@@ -22,7 +22,7 @@ function App() {
             rel="noopener noreferrer"
             className="whentaken-link"
           >
-            <b>When</b>Taken
+            <b>WhenTaken</b>
           </a>{" "}
           League
         </h2>

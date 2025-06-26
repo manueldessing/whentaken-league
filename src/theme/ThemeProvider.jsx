@@ -4,7 +4,7 @@ import { ThemeContext } from "./ThemeContext";
 
 const lightVars = {
   "--color": "#03111e",
-  "--bg": "#968ab5",
+  "--bg": "#c8abdb",
   "--a": "#191d6e",
   "--a-hover": "#343aaf",
   "--button-bg": "#8173a7",
@@ -13,13 +13,13 @@ const lightVars = {
   "--nav-shadow": "#12152f95",
   "--nav-shadow2": "#31387e63",
   "--nav-border": "#30378495",
-  "--theme-selector-bg": "rgba(185, 185, 185, 0.522)",
+  "--theme-selector-bg": "rgba(144, 144, 144, 0.52)",
   "--theme-selector-bg-inner": "rgba(255 255 255 / 0.2)",
   "--theme-selector-system-button": "#8f6d6d",
   "--csvtable-bg": "rgba(255,255,255,0.15)",
   "--csvtable-border": "rgba(123, 114, 143, 0.45)",
   "--csvtable-headbg": "rgba(0,0,0,0.10)",
-  "--csvtable-row-odd": "rgba(0,0,0,0.03)",
+  "--csvtable-row-odd": "rgba(55, 55, 55, 0.16)",
   "--link-hover-color": "#551b85",
 };
 
@@ -37,10 +37,10 @@ const darkVars = {
   "--theme-selector-bg": "rgba(128 128 128 / 0.2)",
   "--theme-selector-bg-inner": "rgba(255 255 255 / 0.2)",
   "--theme-selector-system-button": "#bc9f9f",
-  "--csvtable-bg": "rgba(60, 60, 60, 0.15)",
+  "--csvtable-bg": "rgba(0, 0, 0, 0)",
   "--csvtable-border": "rgba(123, 114, 143, 0.45)",
-  "--csvtable-headbg": "rgba(0,0,0,0.25)",
-  "--csvtable-row-odd": "rgba(255,255,255,0.04)",
+  "--csvtable-headbg": "rgba(0, 0, 0, 0.24)",
+  "--csvtable-row-odd": "rgba(129, 129, 129, 0.12)",
   "--link-hover-color": "#a24aea",
 };
 
