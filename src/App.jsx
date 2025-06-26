@@ -14,11 +14,21 @@ function App() {
     <div className="main-page">
       <div className="header">
         {/* <div className="header-spacer" /> */}
-        <h2>Data Science WhenTaken League</h2>
+        <h2>
+          Data Science{" "}
+          <a
+            href="https://whentaken.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whentaken-link"
+          >
+            <b>When</b>Taken
+          </a>{" "}
+          League
+        </h2>
         <div className="theme-selector-container">
-          <ThemeSelector fontSize="1em"/>
+          <ThemeSelector fontSize="1em" />
         </div>
-        
       </div>
       <div className="nav-buttons">
         <button

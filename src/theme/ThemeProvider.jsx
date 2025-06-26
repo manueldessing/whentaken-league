@@ -20,6 +20,7 @@ const lightVars = {
   "--csvtable-border": "rgba(123, 114, 143, 0.45)",
   "--csvtable-headbg": "rgba(0,0,0,0.10)",
   "--csvtable-row-odd": "rgba(0,0,0,0.03)",
+  "--link-hover-color": "#551b85",
 };
 
 const darkVars = {
@@ -40,6 +41,7 @@ const darkVars = {
   "--csvtable-border": "rgba(123, 114, 143, 0.45)",
   "--csvtable-headbg": "rgba(0,0,0,0.25)",
   "--csvtable-row-odd": "rgba(255,255,255,0.04)",
+  "--link-hover-color": "#a24aea",
 };
 
 function setCSSVars(vars) {

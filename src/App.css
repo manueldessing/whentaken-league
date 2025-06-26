@@ -127,3 +127,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.whentaken-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.whentaken-link:hover {
+  color: var(--link-hover-color);
+}
