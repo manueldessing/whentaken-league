@@ -58,7 +58,7 @@
 
 .main-content {
   overflow-y: auto;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   flex: 1;
 }
 
@@ -136,4 +136,36 @@
 
 .whentaken-link:hover {
   color: var(--link-hover-color);
+}
+
+.loading-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  color: var(--loading-text-color, var(--color));
+  font-size: 0.95em;
+  letter-spacing: 0.01em;
+  gap: 0.05em;
+}
+
+.loader {
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid var(--loading-text-color);
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-right: 0.5ch;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

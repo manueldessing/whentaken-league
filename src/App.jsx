@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLeagueData } from "./DataProvider";
 import WeeklyAverage from "./components/WeeklyAverage";
 import AllTimeBestGames from "./components/AllTimeBestGames";
 import AllTimeAverage from "./components/AllTimeAverage";
@@ -9,6 +10,7 @@ import "./App.css";
 
 function App() {
   const [section, setSection] = useState("leaderboards"); // "leaderboards" or "playerstats"
+  const { loading } = useLeagueData();
 
   return (
     <div className="main-page">
@@ -44,6 +46,11 @@ function App() {
           Player Stats
         </button>
       </div>
+      <p className="loading-area">
+        {loading && (
+          <><span className="loader"></span><span className="loading-text">Loading recent scores</span></>
+        )}
+      </p>
       {section === "leaderboards" ? (
         <div className="main-content leaderboards">
           <div className="all-time-best-table">

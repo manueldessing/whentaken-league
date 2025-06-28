@@ -42,6 +42,7 @@ const darkVars = {
   "--csvtable-headbg": "rgba(0, 0, 0, 0.24)",
   "--csvtable-row-odd": "rgba(129, 129, 129, 0.12)",
   "--link-hover-color": "#a24aea",
+  "--loading-text-color": "rgba(176, 176, 176, 0.5)"
 };
 
 function setCSSVars(vars) {

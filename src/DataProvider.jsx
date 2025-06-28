@@ -12,13 +12,21 @@ const CSV_ENDPOINTS = {
 };
 
 const LeagueDataCtx = createContext();
+const LOCAL_STORAGE_KEY = "whentaken-league-csvdata";
 
 /**
  * Download every CSV in parallel once, keep it in memory, and expose
  * {data, loading, error, refresh()} to consumers.
  */
 export function DataProvider({ children }) {
-  const [data,    setData]    = useState({});
+  const [data,    setData]    = useState(() => {
+    try {
+      const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return cached ? JSON.parse(cached) : {};
+    } catch {
+      return {};
+    }
+  });
   const [loading, setLoading] = useState(true);
   const [error,   setError]   = useState(null);
 
@@ -44,20 +52,38 @@ export function DataProvider({ children }) {
         )
       );
 
-      setData(Object.fromEntries(entries));       // {allTimeAverage: [...], …}
+      const freshData = Object.fromEntries(entries);
+
+      // Only update state/cache if data is different
+      if (!isEqual(freshData, data)) {
+        setData(freshData);
+        try {
+          localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(freshData));
+        } catch {}
+      }
     } catch (err) {
       console.error(err);
       setError(err);
     } finally {
       setLoading(false);
     }
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
-  /* fetch once on first mount */
-  useEffect(() => { fetchAll(); }, [fetchAll]);
+  /* On mount: show cached data immediately, then fetch fresh data */
+  useEffect(() => {
+    setLoading(true);
+    fetchAll();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const value = { data, loading, error, refresh: fetchAll };
   return <LeagueDataCtx.Provider value={value}>{children}</LeagueDataCtx.Provider>;
 }
 
 export const useLeagueData = () => useContext(LeagueDataCtx);
+
+function isEqual(a, b) {
+  // Simple deep equality check for objects/arrays
+  return JSON.stringify(a) === JSON.stringify(b);
+}
