@@ -6,11 +6,13 @@ import AllTimeAverage from "./components/AllTimeAverage";
 import WeeklyBestGames from "./components/WeeklyBestGames";
 import PlayerStatsTable from "./components/PlayerStatsTable";
 import ThemeSelector from "./components/ThemeSelector";
+import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
+
 import "./App.css";
 
 function App() {
   const [section, setSection] = useState("leaderboards"); // "leaderboards" or "playerstats"
-  const { loading } = useLeagueData();
+  const { loading, refresh } = useLeagueData();
 
   return (
     <div className="main-page">
@@ -47,8 +49,17 @@ function App() {
         </button>
       </div>
       <p className="loading-area">
-        {loading && (
-          <><span className="loader"></span><span className="loading-text">Loading recent scores</span></>
+        {loading ? (
+          <>
+            <span className="loader"></span>
+            <span className="loading-text">Loading recent scores</span>
+          </>
+        ) : (
+          <RefreshRoundedIcon
+            style={{ cursor: "pointer" }}
+            onClick={refresh}
+            titleAccess="Refresh data"
+          />
         )}
       </p>
       {section === "leaderboards" ? (
