@@ -1,0 +1,46 @@
+{
+  "2025-06-29": {
+    "o4-mini": {
+      "1": {
+        "lat": 25.05274,
+        "lon": 121.53182,
+        "location": "Shin Kong Mitsukoshi (\u4e09\u8d8a) building, Taipei, Taiwan",
+        "year": 1995,
+        "confidence": 0.35,
+        "rationale": "Pink fa\u00e7ade bears the Mitsukoshi (\u4e09\u8d8a) logo with Chinese/English signage; Taiwanese emergency vehicles and demolition equipment suggest a controlled teardown in central Taipei during the mid-1990s."
+      },
+      "2": {
+        "lat": -34.60838,
+        "lon": -58.36948,
+        "location": "Central Post Office (now Kirchner Cultural Centre), Buenos Aires, Argentina",
+        "year": 1915,
+        "confidence": 0.5,
+        "rationale": "Curved Beaux-Arts colonnade and central dome match Buenos Aires\u2019 original Central Post Office; period trams and early motorcars point to the 1910s."
+      },
+      "3": {
+        "lat": 40.73294,
+        "lon": -73.99239,
+        "location": "East 8th Street, Manhattan, New York City",
+        "year": 2009,
+        "confidence": 0.6,
+        "rationale": "The E 8 St sign, classic yellow Crown Victoria taxis, American flags, summer attire and mid-2000s smartphone usage all point to NYC around 2009."
+      },
+      "4": {
+        "lat": 43.26,
+        "lon": -2.03,
+        "location": "Lasarte racing circuit near San Sebasti\u00e1n, Spain",
+        "year": 1930,
+        "confidence": 0.6,
+        "rationale": "Spanish-language signage and Basque adverts (San Sebasti\u00e1n), 1920\u201330s Auburn \u2018Cilindros\u2019 sponsorship, and the historic Spanish Grand Prix held at Lasarte."
+      },
+      "5": {
+        "lat": -4.62,
+        "lon": 55.455,
+        "location": "Victoria, Seychelles",
+        "year": 2023,
+        "confidence": 0.72,
+        "rationale": "Flags and banners display Seychelles\u2019 distinctive five-colour design, tropical palms frame a ceremonial military parade, matching Independence Day celebrations in Victoria."
+      }
+    }
+  }
+}
