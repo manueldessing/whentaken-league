@@ -7,7 +7,7 @@ const lightVars = {
   "--bg": "#f7fafc",                       
   "--a": "#4a5568",                        
   "--a-hover": "#2b6cb0",                  
-  "--button-bg": "#edf2f7",                
+  "--button-bg": "#e6ebf0",                
   "--button-border-hover": "#63b3ed",      
   "--header-border": "rgba(74, 85, 104, 0.2)",    
   "--nav-shadow": "rgba(66, 153, 225, 0.3)",      
@@ -25,10 +25,10 @@ const lightVars = {
 
 const darkVars = {
   "--color": "#fff",
-  "--bg": "#29223c",
+  "--bg": "#151430",
   "--a": "#5e63bc",
   "--a-hover": "#535bf2",
-  "--button-bg": "#423763",
+  "--button-bg": "#29265c",
   "--button-border-hover": "#62dde68e",
   "--header-border": "#989898af",
   "--nav-shadow": "#62c7e695",
