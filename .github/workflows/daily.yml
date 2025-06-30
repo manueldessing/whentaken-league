@@ -1,0 +1,63 @@
+name: Daily WhenTaken bot
+
+on:
+  schedule:
+    - cron: "30 2 * * *"      # 02:30 UTC every day
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # needed to push
+      packages: write          # for Git LFS, if you decide to track images with LFS
+    steps:
+      # 1) Check out the rolling-commit branch
+      - uses: actions/checkout@v4
+        with:
+          ref: auto/guesses-daily
+          lfs: true            # true only if you later add Git LFS
+
+      # 2) Pre-install Playwright browsers (a single command boots Chromium in CI)
+      - name: Install Python deps & Playwright
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install chromium
+
+      # 3) Run the three scripts in order
+      - name: Scrape images
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python bot/image_scraper.py
+
+      - name: Make guesses
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python bot/make_daily_guesses.py --model o3
+
+      - name: Delete old images
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python bot/delete_old_images.py
+
+      # 4) Stage & commit (amend) everything
+      - name: Commit (rolling)
+        env:
+          TZ: UTC
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          if git rev-parse --verify HEAD >/dev/null 2>&1; then
+            git commit --amend -m "chore(auto): refresh data $(date +'%Y-%m-%d') [skip ci]"
+          else
+            git commit -m "chore(auto): initial snapshot $(date +'%Y-%m-%d') [skip ci]"
+          fi
+
+      # 5) Force-push the single-commit branch
+      - name: Push
+        run: git push --force-with-lease origin auto/guesses-daily
