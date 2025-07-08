@@ -5,6 +5,7 @@ import AllTimeBestGames from "./components/AllTimeBestGames";
 import AllTimeAverage from "./components/AllTimeAverage";
 import WeeklyBestGames from "./components/WeeklyBestGames";
 import PlayerStatsTable from "./components/PlayerStatsTable";
+import DailyGames from "./components/DailyGames";
 import ThemeSelector from "./components/ThemeSelector";
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 
@@ -36,16 +37,22 @@ function App() {
       </div>
       <div className="nav-buttons">
         <button
-          className={section === "leaderboards" ? "active-nav" : ""}
+          className={`side ${section === "daily" ? "active-nav" : ""}`}
+          onClick={() => setSection("daily")}
+        >
+          Daily
+        </button>
+        <button
+          className={`middle ${section === "leaderboards" ? "active-nav" : ""}`}
           onClick={() => setSection("leaderboards")}
         >
           Leaderboards
         </button>
         <button
-          className={section === "playerstats" ? "active-nav" : ""}
+          className={`side ${section === "playerstats" ? "active-nav" : ""}`}
           onClick={() => setSection("playerstats")}
         >
-          Player Stats
+          Players
         </button>
       </div>
       <p className="loading-area">
@@ -79,9 +86,13 @@ function App() {
             <WeeklyAverage />
           </div>
         </div>
-      ) : (
+      ) : section === "playerstats" ? (
         <div className="main-content playerstats">
           <PlayerStatsTable />
+        </div>
+      ) : (
+        <div className="main-content daily">
+          <DailyGames />
         </div>
       )}
       <div className="footer">

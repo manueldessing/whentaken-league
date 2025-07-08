@@ -49,6 +49,16 @@
   color: var(--color);
 }
 
+.nav-buttons button.middle {
+  width: 14ch;
+  font-size: 0.97em;
+}
+
+.nav-buttons button.side {
+  width: 10ch;
+  font-size: 0.85em;
+}
+
 .nav-buttons button.active-nav {
   box-shadow: 0 0 8px 2px var(--nav-shadow, #62c7e695), 0 0 0 2px var(--nav-shadow2, #62c5e658);
   border-color: var(--nav-border, #62dde68e);
@@ -98,6 +108,12 @@
 .playerstats {
   width: 100%;
   max-width: 900px;
+  align-self: center;
+}
+
+.daily {
+  max-width: 400px;
+  width: 100%;
   align-self: center;
 }
 

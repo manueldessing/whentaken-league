@@ -9,6 +9,7 @@ const CSV_ENDPOINTS = {
   weeklyAverage:  0,
   weeklyBest:     1029236952,
   playerStats:    202541998,
+  daily:          652681512
 };
 
 const LeagueDataCtx = createContext();
