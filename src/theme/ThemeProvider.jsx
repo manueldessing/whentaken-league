@@ -20,19 +20,20 @@ const lightVars = {
   "--csvtable-border": "rgba(203, 213, 224, 0.8)", 
   "--csvtable-headbg": "rgba(237, 242, 247, 0.8)", 
   "--csvtable-row-odd": "rgba(247, 250, 252, 0.8)", 
-  "--link-hover-color": "#3182ce",                 
+  "--link-hover-color": "#3182ce",             
+      
 };
 
 const darkVars = {
   "--color": "#fff",
-  "--bg": "#151430",
+  "--bg": "radial-gradient( circle farthest-corner at -24.7% -47.3%,  rgb(4, 52, 65) 0%, rgb(12, 19, 41) 66.8%, rgb(8, 14, 30) 100.2% )",
   "--a": "#5e63bc",
   "--a-hover": "#535bf2",
-  "--button-bg": "#29265c",
+  "--button-bg": "#093254",
   "--button-border-hover": "#62dde68e",
   "--header-border": "#989898af",
-  "--nav-shadow": "#62c7e695",
-  "--nav-shadow2": "#62c5e658",
+  "--nav-shadow": "#3681a3",
+  "--nav-shadow2": "#3681a3",
   "--nav-border": "#62dde68e",
   "--theme-selector-bg": "rgba(128 128 128 / 0.2)",
   "--theme-selector-bg-inner": "rgba(255 255 255 / 0.2)",
@@ -41,7 +42,7 @@ const darkVars = {
   "--csvtable-border": "rgba(123, 114, 143, 0.45)",
   "--csvtable-headbg": "rgba(0, 0, 0, 0.24)",
   "--csvtable-row-odd": "rgba(129, 129, 129, 0.12)",
-  "--link-hover-color": "#a24aea",
+  "--link-hover-color": "#2bb2e3",
   "--loading-text-color": "rgba(176, 176, 176, 0.5)"
 };
 
