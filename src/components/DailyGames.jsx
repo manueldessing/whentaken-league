@@ -35,15 +35,19 @@ export default function DailyGames() {
   const { data, loading } = useLeagueData();
   const rawRows = data.daily || [];
 
-  if (loading) return null;
-
   return (
     <CsvTable
       title="Today's Games"
       rawRows={rawRows}
+      transformRows={(rows) =>
+        rows
+          .sort((a, b) => Number(b.Score) - Number(a.Score))
+          .map((r, i) => ({ Rank: i + 1, ...r }))
+      }
       columns={[
+        { key: "Rank",   label: "#",     align: "right"},
         { key: "Player",  label: "Player" },
-        { key: "Score",  label: "Score" },
+        { key: "Score",  label: "Score" , align: "right"},
       ]}
     />
   );

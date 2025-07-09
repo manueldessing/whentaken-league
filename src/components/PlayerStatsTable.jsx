@@ -35,8 +35,6 @@ export default function PlayerStatsTable() {
   const { data, loading } = useLeagueData();
   const rawRows = data.playerStats || [];
 
-  if (loading) return null;
-
   return (
     <CsvTable
       title="Player Stats"
