@@ -55,7 +55,7 @@ export default function CsvTable({
         mb: 4,
         bgcolor: COLORS.bg,
         backdropFilter: "blur(4px)",
-        border: `2px solid ${effectiveBorder}`,
+        border: 'none',
         borderRadius: 3,
         overflow: "hidden",
       }}

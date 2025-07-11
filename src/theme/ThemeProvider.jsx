@@ -4,7 +4,7 @@ import { ThemeContext } from "./ThemeContext";
 
 const lightVars = {
   "--color": "#2d3748",                    
-  "--bg": "#f7fafc",                       
+  "--bg": "radial-gradient(ellipse 120% 90% at 30% 25%,rgb(232, 242, 249) 60%, #e3f0ff 85%,rgb(220, 238, 249) 100%)",                       
   "--a": "#4a5568",                        
   "--a-hover": "#2b6cb0",                  
   "--button-bg": "#e6ebf0",                

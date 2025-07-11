@@ -47,6 +47,7 @@
 .nav-buttons button,
 .nav-buttons button.active-nav {
   color: var(--color);
+  /* border-radius: 0; */
 }
 
 .nav-buttons button.middle {
