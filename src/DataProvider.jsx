@@ -5,7 +5,7 @@ const SHEET_ID = "1qSSupYmOg1LSFIE0A-fSrbkCKBUrktrSsJRQipnCSH4";
 
 const CSV_ENDPOINTS = {
   allTimeAverage: 1111074709,
-  allTimeBest:    577244590,  // <-- fill in the real gid’s
+  allTimeBest:    577244590,
   weeklyAverage:  0,
   weeklyBest:     1029236952,
   playerStats:    202541998,
