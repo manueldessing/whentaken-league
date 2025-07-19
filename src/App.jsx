@@ -11,9 +11,16 @@ import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 
 import "./App.css";
 
+import { useContext } from "react";
+import { ThemeContext } from "./theme/ThemeContext";
+
+import githubMarkLight from "./assets/github-mark-white.svg";
+import githubMarkDark from "./assets/github-mark.svg";
+
 function App() {
   const [section, setSection] = useState("leaderboards"); // "leaderboards" or "playerstats"
   const { loading, refresh } = useLeagueData();
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className="main-page">
@@ -32,6 +39,7 @@ function App() {
           League
         </h2>
         <div className="theme-selector-container">
+
           <ThemeSelector fontSize="1em" />
         </div>
       </div>
@@ -100,8 +108,25 @@ function App() {
           href="https://docs.google.com/forms/d/e/1FAIpQLScn9rqFI2xErH5b5_-U0jn7ZquweAkHJN-GMEemNKSiGxzGWw/viewform?usp=dialog"
           target="_blank"
           rel="noopener noreferrer"
+          className="upload-score-link"
         >
           Upload your score
+        </a>
+        <a
+          href="https://github.com/manueldessing/whentaken-league"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="github-logo-btn"
+        >
+          <img
+            src={
+              theme === "dark" || (theme === "system" && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                ? githubMarkLight
+                : githubMarkDark
+            }
+            alt="GitHub"
+            className="github-logo-img"
+          />
         </a>
       </div>
     </div>

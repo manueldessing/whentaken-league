@@ -124,8 +124,34 @@
 
 .footer {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.github-logo-btn {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  transition: opacity 0.2s;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+.github-logo-btn:hover .github-logo-img {
+  opacity: 1;
+}
+
+.github-logo-img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.upload-score-link {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .all-time-best-table {
